@@ -3,6 +3,7 @@ package auth
 import (
 		"net/http"
 	    "strings"
+		"errors"
 		)
 
 func GetAPIKey(headers http.Header)(string, error) {

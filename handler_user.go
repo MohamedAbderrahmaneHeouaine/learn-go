@@ -6,7 +6,7 @@ import (
 		"fmt"
 		"time"
 		"github.com/MohamedAbderrahmaneHeouain/learn-go/internal/database"
-		"internal/auth"
+		"github.com/MohamedAbderrahmaneHeouain/learn-go/internal/auth"
 		"github.com/google/uuid"
 		)
 
@@ -33,15 +33,15 @@ func (apiCfg *apiConfig) handlerCreateUser(w http.ResponseWriter, r *http.Reques
 	respondWithJSON(w, 201, databaseUserToUser(user))
 }
 
-func (apiCfg *apiConfig) handlerGetUser(w http.ResponseWriter, r *http.Request){
+func (apiCfg *apiConfig) handlerGetUser(w http.ResponseWriter, r *http.Request, user database.User){
 	apiKey, err := auth.GetAPIKey(r.Header)
 	if err!= nil {
         respondWithError(w, 403, err.Error())
         return
     }	
-	user,err := apiCfg.DB.GetUserByAPIKey(r.Content(), apiKey)
-	if err!= nil {
-        respondWithError(w, 400, err.Error())
+	user,errUser := apiCfg.DB.GetUserByAPIKey(r.Context(), apiKey)
+	if errUser!= nil {
+        respondWithError(w, 400, errUser.Error())
         return
     }		
 	respondWithJSON(w, 200, databaseUserToUser(user))
