@@ -23,7 +23,7 @@ type ApiServer struct {
 	store Storer
 }
 
-func main() {
+func interfaces() {
 	apiServer := ApiServer{store: MongoDbStore{}}
 	numbers, error := apiServer.store.GetAll()
 	if error == nil {

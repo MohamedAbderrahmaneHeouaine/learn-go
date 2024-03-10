@@ -30,7 +30,7 @@ type weapon string
 func getWeapon(weapon2 weapon) weapon {
 	return weapon2 // or you can casting string(weapon2) add the return type will be string
 }
-func main() {
+func typesTest() {
 	player := Player{}
 	player.name = "jhon"
 	player.health = 5

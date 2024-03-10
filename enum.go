@@ -32,6 +32,6 @@ func getDamage(weaponType WeaponType) int {
 	}
 
 }
-func main() {
+func enum() {
 	fmt.Println(getDamage(Knife))
 }

@@ -14,7 +14,7 @@ const (
 	Last  = 2
 )
 
-func main() {
+func variables() {
 	//there are four ways to declare a variable
 	// these variable are local in the main function
 	var name = "Foo" // infer string
