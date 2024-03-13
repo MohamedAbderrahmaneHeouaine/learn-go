@@ -37,7 +37,7 @@ type Server struct {
 func updateValue(id int, val any, putter Putter) error {
 	return putter.Put(id, val)
 }
-func main() {
+func interfacespro() {
 	user := types.User{
 		Username: "aymen",
 		Age:      33,
